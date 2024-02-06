@@ -19,3 +19,7 @@ The project was build based off the Figma design below:
 - [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
 
 # Github Links
+
+https://github.com/Yirmi88/se_project_aroundtheus
+
+https://yirmi88.github.io/se_project_aroundtheus/
