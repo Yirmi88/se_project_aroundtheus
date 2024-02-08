@@ -16,6 +16,7 @@
   grid-template-columns: minmax(auto, 392px) auto;
   align-items: baseline;
   margin-left: 24px;
+  max-width: 392px;
 }
 
 .profile__image {
@@ -111,7 +112,7 @@
   }
   .profile__add-button {
     margin: 30px auto 30px;
-    width: 282px;
+    width: 280px;
     height: 50px;
   }
   .profile__description {
