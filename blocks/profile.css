@@ -2,9 +2,6 @@
   display: flex;
   align-items: center;
   padding-top: 40px;
-}
-
-.profile.page__section {
   margin: 0 auto 51px;
 }
 
@@ -15,13 +12,14 @@
     "description description";
   grid-template-columns: minmax(auto, 400px) auto;
   align-items: baseline;
-  margin-left: 24px;
   max-width: 420px;
 }
 
 .profile__image {
   height: 120px;
   width: 120px;
+  margin-right: 30px;
+  border-radius: 50%;
 }
 
 .profile__title {
@@ -33,7 +31,10 @@
   text-align: left;
   grid-area: title;
   margin: 0 0 7px;
-  max-width: 373px;
+  max-width: 380px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__description {
@@ -57,6 +58,10 @@
   width: 24px;
   grid-area: button;
   border: 1px solid #ffffff;
+}
+
+.profile__edit-button:hover {
+  cursor: pointer;
   opacity: 0.6;
 }
 
@@ -66,58 +71,77 @@
   height: 50px;
   margin-left: auto;
   padding: 0;
-  border: 1px solid #ffffff;
-  opacity: 0.8;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+}
+
+.profile__add-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 800px) {
   .profile__title {
     font-size: 34px;
   }
+
   .profile__description {
     font-size: 14px;
   }
+
   .profile__add-button {
     width: 50px;
     height: 50px;
   }
+
   .profile__info {
     grid-template-columns: minmax(auto, 322px) auto;
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 660px) {
+@media screen and (min-width: 320px) and (max-width: 620px) {
   .profile__info {
     max-width: 250px;
-    grid-template-columns: minmax(auto, 228px) auto;
+    grid-template-columns: minmax(auto, 215px) auto;
   }
+
   .profile__title {
-    font-size: 24px;
-    margin-bottom: 0;
+    font-size: 22px;
+    line-height: 22px;
+    margin: 30px auto 14px;
   }
+
   .profile__edit-button {
     height: 18px;
     width: 18px;
   }
+
+  .profile {
+    padding-top: 0;
+  }
+
   .profile__image {
-    margin-bottom: 20px;
+    margin: 0;
   }
 }
 
 @media screen and (max-width: 620px) {
-  .profile.page__section {
+  .profile {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
   }
+
   .profile__add-button {
-    margin: 30px auto 30px;
+    margin: 30px auto 0;
     width: 280px;
-    height: 50px;
   }
+
   .profile__description {
     margin: 0 auto;
+    line-height: 14px;
   }
+
   .profile__info {
     margin: 0 auto;
   }
