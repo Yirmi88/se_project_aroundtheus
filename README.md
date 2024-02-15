@@ -23,3 +23,7 @@ The project was build based off the Figma design below:
 https://github.com/Yirmi88/se_project_aroundtheus
 
 https://yirmi88.github.io/se_project_aroundtheus/
+
+# Video
+
+https://drive.google.com/file/d/1Bz78P6qu6P2bIyV6CS3CThNszmzzmNMI/view?usp=sharing

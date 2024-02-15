@@ -107,8 +107,9 @@
 
   .profile__title {
     font-size: 22px;
-    line-height: 22px;
+    line-height: 26.63px;
     margin: 30px auto 14px;
+    max-width: 196px;
   }
 
   .profile__edit-button {
@@ -140,6 +141,7 @@
   .profile__description {
     margin: 0 auto;
     line-height: 14px;
+    max-width: 55px;
   }
 
   .profile__info {
