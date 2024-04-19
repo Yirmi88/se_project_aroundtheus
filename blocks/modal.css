@@ -71,24 +71,17 @@
   opacity: 0.8;
 }
 
-.modal__title {
-  height: 27.34px;
-  padding: 0;
-  margin-bottom: 29.74px;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.modal__description {
-  height: 27.34px;
-  padding: 0;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
 .modal__input {
   font-size: 14px;
   line-height: 16.94px;
+  height: 27.34px;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal__input:first-of-type {
+  margin-bottom: 29.74px;
 }
 
 .modal__form {
@@ -116,7 +109,6 @@
   .modal__button {
     font-size: 14px;
     line-height: 16.94px;
-    width: 238px;
     height: 46px;
     margin: 45px auto 0;
   }
@@ -129,12 +121,10 @@
   }
 
   .modal__description {
-    width: 238px;
     height: 27px;
   }
 
   .modal__title {
-    width: 238px;
     height: 27px;
   }
 }
