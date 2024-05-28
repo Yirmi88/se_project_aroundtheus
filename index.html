@@ -97,12 +97,52 @@
         </form>
       </div>
     </div>
+    <div class="modal" id="add-card-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="profile-close-modal"
+          type="button"
+        ></button>
+        <h2 class="modal__heading">New Place</h2>
+        <form class="modal__form" id="add-card-form">
+          <input
+            type="text"
+            name="title"
+            class="modal__input_type_title modal__input"
+            placeholder=" Title"
+            required
+          />
+          <input
+            type="text"
+            name="url"
+            class="modal__input_type_url modal__input"
+            placeholder="Image URL"
+            required
+          />
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="image-preview">
+      <div class="modal__container modal__image-contain">
+        <button
+          class="modal__close modal__image_preview_closed"
+          id="image-preview-close-button"
+          type="button"
+        ></button>
+        <img src="" alt="" class="modal__content_type_preview" />
+        <p class="modal__caption"></p>
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="card">
         <img src="" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>
+          <button class="card__delete-button" type="button"></button>
         </div>
       </li>
     </template>
