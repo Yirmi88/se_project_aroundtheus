@@ -99,7 +99,7 @@ function getCardElement(cardData) {
 function openImagePreview(link, name) {
   const modalImage = document.querySelector("#image-preview");
   const modalImageEl = modalImage.querySelector(".modal__content_type_preview");
-  const modalCaptionEl = modalImage.querySelector(".modal__caption");
+  const modalCaptionEl = modalImage.querySelector(".modal__image-title");
 
   // עדכון המודל
   modalImageEl.src = link;
@@ -147,9 +147,7 @@ initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 //   const cardElement = getCardElement(cardData);
 //   cardListEl.prepend(cardElement);
 // });
-const imagePreviewCloseButton = modalImage.querySelector(
-  ".modal__image_preview_closed"
-);
+const imagePreviewCloseButton = modalImage.querySelector(".modal__close");
 
 const previewImageModal = document.querySelector(".card__image");
 imagePreviewCloseButton.addEventListener("click", () => closeModal(modalImage));

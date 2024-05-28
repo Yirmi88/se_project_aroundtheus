@@ -32,11 +32,10 @@
   margin: auto;
   border-radius: 10px;
   position: relative;
-  width: 358px;
-  height: 330px;
-  border: 1px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  background-color: transparent;
 }
 
 .modal__close {
@@ -57,6 +56,12 @@
   height: 330px;
   display: flex;
   flex-direction: column;
+}
+
+.modal__image-title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.52px;
 }
 
 /* #image-preview {
