@@ -27,7 +27,6 @@ const initialCards = [
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -51,8 +50,6 @@ const cardTitleInput = addCardFormElement.querySelector(
 const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 
 function openModal(modal) {
-  // profileTitleInput.value = profileTitle.textContent;
-  // profileDescriptionInput.value = profileDescription.textContent;
   modal.classList.add("modal_opened");
 }
 
@@ -66,18 +63,15 @@ function renderCard(cardData, wrapper) {
 }
 
 function getCardElement(cardData) {
-  // יצירת כרטיס חדש מהתבנית
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
 
-  // הוספת אבנט לאירוע לחיצה לכפתור הלייק
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
 
-  // הוספת אבנט לאירוע לחיצה לכפתור המחיקה
   const deleteButton = cardElement.querySelector(".card__delete-button");
   deleteButton.addEventListener("click", function (evt) {
     evt.target.closest(".card").remove();
@@ -85,9 +79,8 @@ function getCardElement(cardData) {
 
   cardImageEl.src = cardData.link;
   cardTitleEl.textContent = cardData.name;
-  // cardImageEl.alt = cardData.name;
+  cardImageEl.alt = cardData.name;
 
-  // הוספת אבנט לאירוע לחיצה לתמונה כדי לפתוח את המודאל עם התמונה המוגדלת
   cardImageEl.addEventListener("click", () => {
     openImagePreview(cardData.link, cardData.name);
   });
@@ -95,18 +88,15 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-// מציאת אלמטים בתוך המודל
 function openImagePreview(link, name) {
   const modalImage = document.querySelector("#image-preview");
   const modalImageEl = modalImage.querySelector(".modal__content_type_preview");
   const modalCaptionEl = modalImage.querySelector(".modal__image-title");
 
-  // עדכון המודל
   modalImageEl.src = link;
   modalImageEl.alt = name;
   modalCaptionEl.textContent = name;
 
-  //פתיחת המודל
   openModal(modalImage);
 }
 
@@ -144,9 +134,7 @@ function handleAddCardFormSubmit(e) {
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
-//   const cardElement = getCardElement(cardData);
-//   cardListEl.prepend(cardElement);
-// });
+
 const imagePreviewCloseButton = modalImage.querySelector(".modal__close");
 
 const previewImageModal = document.querySelector(".card__image");

@@ -1,5 +1,6 @@
 .modal {
   position: fixed;
+  font-family: "Inter", Arial, sans-serif;
   top: 0;
   bottom: 0;
   right: 0;
@@ -64,27 +65,10 @@
 }
 
 .modal__image-title {
+  font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 14.52px;
-}
-
-/* #image-preview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-} */
-
-.modal__image_preview_closed {
-  width: 140px;
-  height: 140px;
-  background-image: url(../images/close-icon.svg);
-  border: none;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: relative;
 }
 
 .modal__content_type_preview {
