@@ -129,6 +129,7 @@ function handleAddCardFormSubmit(e) {
   renderCard({ name, link }, cardListEl);
 
   closeModal(addCardModal);
+  e.target.reset();
 }
 
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
