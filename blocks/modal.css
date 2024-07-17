@@ -126,12 +126,36 @@
   margin-bottom: 29.74px;
 }
 
+.modal__input:invalid {
+  border-bottom: 1px solid red;
+}
+
 .modal__form {
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  position: relative;
+}
+
+.modal__error {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  /* width: 358px; */
+  visibility: hidden;
+  top: 35px;
+}
+
+.modal__error_visible {
+  visibility: visible;
+}
+
+.modal__button_disabled {
+  background-color: grey;
+  pointer-events: none;
+  opacity: 0.2;
 }
 
 @media screen and (max-width: 620px) {
