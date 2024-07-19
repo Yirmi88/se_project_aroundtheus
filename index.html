@@ -50,36 +50,36 @@
         ></button>
         <h2 class="modal__heading">Edit Profile</h2>
         <form class="modal__form">
-          <!-- <label for="profile-title-input" class="modal__label"> -->
-          <input
-            type="text"
-            name="title"
-            id="profile-title-input"
-            class="modal__title modal__input"
-            placeholder=" Title"
-            maxlength="40"
-            minlength="2"
-            required
-          />
-          <span class="modal__error" id="profile-title-input-error"
-            >Please fill out this field</span
-          >
-          <!-- </label> -->
-          <!-- <label for="profile-description-input" class="modal__label"> -->
-          <input
-            type="text"
-            name="description"
-            id="profile-description-input"
-            class="modal__description modal__input"
-            placeholder="Description"
-            maxlength="200"
-            minlength="2"
-            required
-          />
-          <span id="profile-description-input-error" class="modal__error"
-            >Please enter a web</span
-          >
-          <!-- </label> -->
+          <label class="modal__label">
+            <input
+              type="text"
+              name="title"
+              id="profile-title-input"
+              class="modal__title modal__input"
+              placeholder=" Title"
+              maxlength="40"
+              minlength="2"
+              required
+            />
+            <span class="modal__error" id="profile-title-input-error"
+              >Please fill out this field</span
+            >
+          </label>
+          <label class="modal__label">
+            <input
+              type="text"
+              name="description"
+              id="profile-description-input"
+              class="modal__description modal__input"
+              placeholder="Description"
+              maxlength="200"
+              minlength="2"
+              required
+            />
+            <span id="profile-description-input-error" class="modal__error"
+              >Please enter a web</span
+            >
+          </label>
           <button
             class="modal__button modal__button_disabled"
             type="submit"
@@ -99,42 +99,42 @@
         ></button>
         <h2 class="modal__heading">New Place</h2>
         <form class="modal__form" id="add-card-form">
-          <!-- <label for="card-name-input" class="modal__label"> -->
-          <input
-            type="text"
-            name="title"
-            id="card-name-input"
-            class="modal__input_type_title modal__input"
-            placeholder=" Title"
-            maxlength="40"
-            minlength="2"
-            required
-          />
-          <span class="modal__error" id="card-name-input-error"
-            >Please fill out this field</span
-          >
-          <!-- </label>
-          <label for="card-link-input" class="modal__label"> -->
-          <input
-            type="url"
-            name="url"
-            id="card-link-input"
-            class="modal__input_type_url modal__input"
-            placeholder="Image link"
-            minlength="2"
-            maxlength="200"
-            required
-          />
-          <span id="card-link-input-error" class="modal__error"
-            >Please enter a web</span
-          >
-          <!-- </label> -->
+          <label class="modal__label">
+            <input
+              type="text"
+              name="title"
+              id="card-name-input"
+              class="modal__input_type_title modal__input"
+              placeholder=" Title"
+              maxlength="40"
+              minlength="2"
+              required
+            />
+            <span class="modal__error" id="card-name-input-error"
+              >Please fill out this field</span
+            >
+          </label>
+          <label class="modal__label">
+            <input
+              type="url"
+              name="url"
+              id="card-link-input"
+              class="modal__input_type_url modal__input"
+              placeholder="Image link"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span id="card-link-input-error" class="modal__error"
+              >Please enter a web</span
+            >
+          </label>
           <button
             class="modal__button modal__button_disabled"
             type="submit"
             disabled
           >
-            Create
+            Save
           </button>
         </form>
       </div>
