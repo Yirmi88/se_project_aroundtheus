@@ -140,3 +140,26 @@ const imagePreviewCloseButton = modalImage.querySelector(".modal__close");
 
 const previewImageModal = document.querySelector(".card__image");
 imagePreviewCloseButton.addEventListener("click", () => closeModal(modalImage));
+
+function closePopup(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keyup", closeModalOnEscape);
+}
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keyup", closeModalOnEscape);
+  modal.addEventListener("click", closeModalOnClick);
+}
+function closeModalOnEscape(e) {
+  if (e.key === "Escape") {
+    const modal = document.querySelector(".modal_opened");
+    closeModal(modal);
+  }
+}
+
+function closeModalOnClick(e) {
+  if (e.target.classList.contains("modal_opened")) {
+    closePopup(e.target);
+  }
+}
