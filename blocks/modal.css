@@ -118,7 +118,6 @@
   line-height: 16.94px;
   height: 27.08px;
   padding: 0;
-  /* margin-bottom: 20px; */
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   position: relative;
@@ -151,7 +150,6 @@
   position: absolute;
   color: red;
   font-size: 12px;
-  /* width: 358px; */
   visibility: hidden;
   top: 35px;
   line-height: 14.52px;
@@ -186,7 +184,7 @@
     font-size: 14px;
     line-height: 16.94px;
     height: 46px;
-    margin: 45px auto 0;
+    margin: 18px auto 0;
   }
 
   .modal__container {

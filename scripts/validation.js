@@ -1,25 +1,3 @@
-// let isValid = true;
-
-// if (!nameInput.validity.valid) {
-//   showInputError(profileTitleInput);
-//   isValid = false;
-// } else {
-//   hideInputError(profileTitleInput);
-// }
-
-// if (!descriptionInput.validity.valid) {
-//   showInputError(profileDescriptionInput);
-//   isValid = false;
-// } else {
-//   hideInputError(profileDescriptionInput);
-// }
-
-// if (isValid) {
-//   profileTitle.textContent = profileTitleInput.value;
-//   profileDescription.textContent = profileDescriptionInput.value;
-// }
-// closemodal();
-
 function showInputError(formEl, inputEl, options) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
   if (!errorMessageEl) {
@@ -28,7 +6,6 @@ function showInputError(formEl, inputEl, options) {
   inputEl.classList.add(options.inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
   errorMessageEl.classList.add(options.errorClass);
-  // errorMessageEl.style.visibility = "visible";
 }
 function hideInputError(formEl, inputEl, options) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
@@ -57,20 +34,6 @@ function disableButton() {
     button.disabled = true;
   }
 }
-
-// function enableButtton(submitButton) {
-//   const { inactiveButtonClass } = options;
-//   submitButton.classList.add(inactiveButtonClass);
-//   submitButton.disabled = false;
-//   return;
-// }
-
-// function disableButton(submitButton) {
-//   const { inactiveButtonClass } = options;
-//   submitButton.classList.remove(inactiveButtonClass);
-//   submitButton.disabled = true;
-//   return;
-// }
 
 function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
   if (hasInvalidInput(inputEls)) {
