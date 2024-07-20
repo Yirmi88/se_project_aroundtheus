@@ -48,6 +48,8 @@ const cardTitleInput = addCardFormElement.querySelector(
   ".modal__input_type_title"
 );
 const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
+const modalImageEl = modalImage.querySelector(".modal__content_type_preview");
+const modalCaptionEl = modalImage.querySelector(".modal__image-title");
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -58,6 +60,7 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keyup", closeModalOnEscape);
+  modal.removeEventListener("click", closeModalOnClick);
 }
 
 function closeModalOnEscape(e) {
@@ -105,10 +108,6 @@ function getCardElement(cardData) {
 }
 
 function openImagePreview(link, name) {
-  const modalImage = document.querySelector("#image-preview");
-  const modalImageEl = modalImage.querySelector(".modal__content_type_preview");
-  const modalCaptionEl = modalImage.querySelector(".modal__image-title");
-
   modalImageEl.src = link;
   modalImageEl.alt = name;
   modalCaptionEl.textContent = name;
