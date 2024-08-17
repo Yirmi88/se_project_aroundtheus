@@ -1,3 +1,13 @@
+import FormValidator from "../components/FormValidator.js";
+
+const options = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -155,3 +165,10 @@ const imagePreviewCloseButton = modalImage.querySelector(".modal__close");
 
 const previewImageModal = document.querySelector(".card__image");
 imagePreviewCloseButton.addEventListener("click", () => closeModal(modalImage));
+
+const addCardFormValidator = new FormValidator(options, addCardFormElement);
+const profileEditValidator = new FormValidator(options, profileEditForm);
+
+// Enable form validation
+addCardFormValidator.enableValidation();
+profileEditValidator.enableValidation();
