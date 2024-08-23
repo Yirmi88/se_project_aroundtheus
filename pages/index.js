@@ -138,7 +138,7 @@ function handleAddCardFormSubmit(e) {
 
   closeModal(addCardModal);
   e.target.reset();
-  addCardFormValidator._toggleButtonState();
+  addCardFormValidator.toggleButtonState();
 }
 
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
