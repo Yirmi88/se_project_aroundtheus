@@ -1,8 +1,8 @@
-import FormValidator from "../src/components/FormValidator.js";
+// import FormValidator from "../components/FormValidator.js";
 
-import Card from "../src/components/Card.js";
+// import Card from "../components/Card.js";
 
-import "./pages/index.css";
+// import "./pages/index.css";
 
 const options = {
   inputSelector: ".modal__input",
