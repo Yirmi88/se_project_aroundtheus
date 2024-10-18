@@ -70,7 +70,7 @@ function createCard(cardData) {
 function handleProfileEditSubmit(formValues) {
   userInfo.setUserInfo({
     name: formValues.title,
-    about: formValues.card__description,
+    about: formValues.description,
   });
   editProfileModal.close();
 }
