@@ -19,6 +19,14 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "dd4b1f91-60b7-43bd-863b-bdcf1fa7ef8f",
+    "Content-Type": "application/json",
+  },
+});
+
 const addCardFormValidator = new FormValidator(configItems, addCardFormElement);
 const profileEditValidator = new FormValidator(configItems, profileEditForm);
 
