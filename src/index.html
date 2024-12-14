@@ -161,8 +161,38 @@
         </div>
       </li>
     </template>
-    <!-- <script src="./pages/index.js" type="module"></script>
-    <script src="./components/FormValidator.js" type="module"></script>
-    <script src="./components/Card.js" type="module"></script> -->
+    <!--CONFIRM DELETE POPUP MODAL-->
+
+    <div class="modal" id="confirm-delete-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="confirm-modal-close-button"></button>
+        <p class="modal__heading">Are you sure?</p>
+        <form class="modal__form">
+          <button class="modal__button">Yes</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Avatar edit modal -->
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="avatar-edit-close-button"></button>
+        <p class="modal__heading">Change Profile Picture</p>
+        <form class="modal__form" id="avatar-edit-form">
+          <div class="modal__avatar">
+            <input
+              class="modal__input"
+              type="url"
+              name="avatar"
+              id="avatar-url-input"
+              placeholder="Image link"
+              required
+            />
+          </div>
+          <span class="modal__error" id="avatar-url-input-error"></span>
+          <button class="modal__button">Save</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
