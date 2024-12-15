@@ -15,4 +15,21 @@ export default class PopupWithImage extends Popup {
     this._previewTitle.textContent = data.name;
     super.open();
   }
+
+  // open(data) {
+  //   const img = new Image();
+  //   img.src = data.link;
+
+  //   img.onload = () => {
+  //     this._previewImage.src = data.link;
+  //     this._previewImage.alt = data.name;
+  //     this._previewTitle.textContent = data.name;
+  //     super.open();
+  //   };
+
+  //   img.onerror = () => {
+  //     console.error("Error loading image");
+  //     // Optionally handle the error case
+  //   };
+  // }
 }
