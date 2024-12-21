@@ -11,13 +11,6 @@ export default class Api {
     return Promise.reject(`Error: ${res.status}`);
   }
 
-  // async function getInitialCards() {
-  //   const res = await fetch(this.baseUrl + "/cards", {
-  //     headers: this.headers,
-  //   });
-  //   return this._checkResponse(res);
-  // }
-
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",

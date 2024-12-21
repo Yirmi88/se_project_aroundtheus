@@ -20,6 +20,9 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
+const profileImageContainer = document.querySelector(
+  ".profile__image-container"
+);
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -31,9 +34,14 @@ const api = new Api({
 
 const addCardFormValidator = new FormValidator(configItems, addCardFormElement);
 const profileEditValidator = new FormValidator(configItems, profileEditForm);
+const editAvatarFormValidator = new FormValidator(
+  configItems,
+  document.querySelector("#avatar-edit-form")
+);
 
 addCardFormValidator.enableValidation();
 profileEditValidator.enableValidation();
+editAvatarFormValidator.enableValidation();
 
 const cardList = new Section(
   {
@@ -49,7 +57,7 @@ const cardList = new Section(
 api
   .getInitialCards()
   .then((cards) => {
-    console.log("Cards from API:", cards); // Should show full card data including IDs
+    console.log("Cards from API:", cards);
     if (Array.isArray(cards)) {
       cards.forEach((card) => {
         const cardElement = createCard(card);
@@ -60,15 +68,6 @@ api
   .catch((err) => {
     console.error("Error loading cards:", err);
   });
-// api
-//   .getInitialCards()
-//   .then((cards) => {
-//     console.log("API Response cards:", cards);
-//     cardList.renderItems(cards);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
 
 api
   .getUserInfo()
@@ -134,7 +133,6 @@ function createCard(cardData) {
   });
   return view;
 }
-// return cardElement.getView();
 
 function handleDeleteCard(card) {
   deleteCardPopup.setAction(() => {
@@ -167,28 +165,10 @@ function handleLikeCard(card) {
   }
 }
 
-// function handleLikeCard(card) {
-//   api
-
-//     .handleLikeCard(card._id, card.isLiked)
-
-//     .then((res) => {
-//       console.log(res);
-//       card.setIsLiked(res.isLiked);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//     })
-//     .finally(() => {
-//       console.log("Like card complete");
-//     });
-// }
-
 function handleProfileEditSubmit(formValues) {
-  // First, transform the form values to match what the API expects
   const apiData = {
-    name: formValues.title, // Convert from form's 'title' to API's 'name'
-    about: formValues.description, // Convert from form's 'description' to API's 'about'
+    name: formValues.title,
+    about: formValues.description,
   };
 
   editProfileModal.renderLoading(true);
@@ -212,20 +192,11 @@ function handleProfileEditSubmit(formValues) {
       editProfileModal.renderLoading(false);
     });
 }
-//   userInfo.setUserInfo({
-//     name: formValues.title,
-//     about: formValues.description,
-//   });
-//   editProfileModal.close();
-// }
 
-// function handleAddCardFormSubmit(formValues) {
-//   const cardData = { name: formValues.title, link: formValues.link };
-//   createCard(cardData);
-//   addCardModal.renderLoading(true);
-//   api.addCard(cardData).then(cardData);
-//   addCardModal.close();
-// }
+profileImageContainer.addEventListener("click", () => {
+  document.querySelector("#avatar-edit-form").reset();
+  editAvatarPopup.open();
+});
 
 function handleAddCardFormSubmit(formValues) {
   const cardData = { name: formValues.title, link: formValues.link };
@@ -234,8 +205,8 @@ function handleAddCardFormSubmit(formValues) {
   api
     .addCard(cardData)
     .then((newCard) => {
-      const cardElement = createCard(newCard); // Create card from API response
-      cardList.addItem(cardElement); // Add it to the section
+      const cardElement = createCard(newCard);
+      cardList.addItem(cardElement);
       addCardModal.close();
     })
     .catch((err) => {
@@ -246,36 +217,27 @@ function handleAddCardFormSubmit(formValues) {
     });
 }
 
-function handleAvatarEditSubmit(input) {
-  const link = input.avatar;
+function handleAvatarEditSubmit(formValues) {
+  const link = formValues.avatar;
 
   if (link) {
-    editAvatarModal.renderLoading(true);
+    editAvatarPopup.renderLoading(true);
     api
       .updateAvatar(link)
       .then((userData) => {
-        userInfo.setAvatarInfo(userData.avatar);
-
-        editAvatarModal.close();
+        userInfo.setUserInfo({
+          name: userData.name,
+          about: userData.about,
+          avatar: userData.avatar,
+        });
+        editAvatarPopup.close();
       })
       .catch((err) => console.error("Error updating avatar:", err))
       .finally(() => {
-        editAvatarModal.renderLoading(false);
+        editAvatarPopup.renderLoading(false);
       });
-  } else {
-    console.error("Avatar Link is not defined");
   }
 }
-
-// function handleAddCardFormSubmit(formValues) {
-//   const name = formValues.title;
-//   const link = formValues.link;
-
-//   const card = createCard({ name, link });
-//   cardList.addItem(card);
-//   addCardFormElement.reset();
-//   addCardModal.close();
-// }
 
 addNewCardButton.addEventListener("click", () => {
   addCardFormValidator.toggleButtonState();
@@ -287,5 +249,4 @@ profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = formValues.name;
   profileDescriptionInput.value = formValues.about;
   editProfileModal.open();
-  // openModal(profileEditModal);
 });

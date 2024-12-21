@@ -76,12 +76,6 @@ export default class Card {
     this._handleLikeCard(this);
   }
 
-  // _handleLikeButton() {
-  //   this._cardElement
-  //     .querySelector(".card__like-button")
-  //     .classList.toggle("card__like-button_active");
-  // }
-
   _handleDeleteButton() {
     if (this._handleDeleteCard) {
       this._handleDeleteCard(this);

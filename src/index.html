@@ -16,11 +16,14 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/jacques-cousteau.png')%>"
-            alt="jacques-cousteau-profile-picture"
-            class="profile__image"
-          />
+          <div class="profile__image-container">
+            <img
+              src="<%=require('./images/jacques-cousteau.png')%>"
+              alt="jacques-cousteau-profile-picture"
+              class="profile__image"
+            />
+            <button class="profile__edit-image"></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -166,7 +169,7 @@
     <div class="modal" id="confirm-delete-modal">
       <div class="modal__container">
         <button class="modal__close" id="confirm-modal-close-button"></button>
-        <p class="modal__heading">Are you sure?</p>
+        <h2 class="modal__heading">Are you sure?</h2>
         <form class="modal__form">
           <button class="modal__button">Yes</button>
         </form>
@@ -177,9 +180,9 @@
     <div class="modal" id="avatar-edit-modal">
       <div class="modal__container">
         <button class="modal__close" id="avatar-edit-close-button"></button>
-        <p class="modal__heading">Change Profile Picture</p>
+        <h2 class="modal__heading">Change Profile Picture</h2>
         <form class="modal__form" id="avatar-edit-form">
-          <div class="modal__avatar">
+          <label class="modal__label">
             <input
               class="modal__input"
               type="url"
@@ -188,8 +191,8 @@
               placeholder="Image link"
               required
             />
-          </div>
-          <span class="modal__error" id="avatar-url-input-error"></span>
+            <span class="modal__error" id="avatar-url-input-error"></span>
+          </label>
           <button class="modal__button">Save</button>
         </form>
       </div>
