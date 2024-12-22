@@ -23,6 +23,7 @@ const profileDescriptionInput = document.querySelector(
 const profileImageContainer = document.querySelector(
   ".profile__image-container"
 );
+const avatarForm = document.querySelector("#avatar-edit-form");
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -33,14 +34,12 @@ const api = new Api({
 });
 
 profileImageContainer.addEventListener("click", () => {
+  editAvatarFormValidator.toggleButtonState();
   editAvatarPopup.open();
 });
 const addCardFormValidator = new FormValidator(configItems, addCardFormElement);
 const profileEditValidator = new FormValidator(configItems, profileEditForm);
-const editAvatarFormValidator = new FormValidator(
-  configItems,
-  document.querySelector("#avatar-edit-form")
-);
+const editAvatarFormValidator = new FormValidator(configItems, avatarForm);
 
 addCardFormValidator.enableValidation();
 profileEditValidator.enableValidation();
@@ -175,13 +174,7 @@ function handleProfileEditSubmit(formValues) {
   api
     .setUserInfo(apiData)
     .then((data) => {
-      const currentUserInfo = userInfo.getUserInfo();
-
-      userInfo.setUserInfo({
-        name: data.name,
-        about: data.about,
-        avatar: currentUserInfo.avatar,
-      });
+      userInfo.setUserInfo(data);
       profileEditForm.reset();
       profileEditValidator.resetValidation();
       editProfileModal.close();
@@ -204,7 +197,6 @@ function handleAddCardFormSubmit(formValues) {
       const cardElement = createCard(newCard);
       cardList.addItem(cardElement);
       addCardFormElement.reset();
-      addCardFormValidator.resetValidation();
       addCardModal.close();
     })
     .catch((err) => {
@@ -228,8 +220,7 @@ function handleAvatarEditSubmit(formValues) {
           about: userData.about,
           avatar: userData.avatar,
         });
-        document.querySelector("#avatar-edit-form").reset();
-        editAvatarFormValidator.resetValidation();
+        avatarForm.reset();
         editAvatarPopup.close();
       })
       .catch((err) => console.error("Error updating avatar:", err))
