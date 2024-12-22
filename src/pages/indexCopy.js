@@ -50,6 +50,8 @@ const profileDescriptionInput = document.querySelector(
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 
 const modalImage = document.querySelector("#image-preview");
+console.log("modalImage", modalImage);
+
 const modalImageForm = modalImage.querySelector(".modal__container");
 const addCardFormElement = document.querySelector("#add-card-form");
 const cardListEl = document.querySelector(".cards__list");
