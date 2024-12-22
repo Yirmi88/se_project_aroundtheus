@@ -6,11 +6,9 @@ export default class Card {
     handleLikeCard,
     handleDeleteCard
   ) {
-    console.log("Card Data received:", cardData);
     this._name = cardData.name;
     this._link = cardData.link;
     this._id = cardData._id || cardData.id;
-    console.log("Stored card ID:", this._id);
     this._isLiked = cardData.isLiked;
     this._cardSelector = cardSelector;
     this._openImagePreview = openImagePreview;
